@@ -1,1 +1,41 @@
-
+body{
+    font-family:sans-serif;
+}
+header{
+    background:#FAEBD7;
+}
+h1{
+    text-align:center;
+    font-size:50px;
+}
+h2{
+    text-align:center;
+    font-size:30px;
+}
+main{
+    font-size:20px;
+}
+table{
+    border:1px solid pink; 
+    border-collapse:collapse;
+    font-size:20px; 
+    background:#FAEBD7;
+}
+tr{
+    border:1px solid pink;
+}
+footer{
+    background:#FAEBD7;
+}
+.logo{
+    width:50px;
+}
+a{
+font-size:16px;color:#6a006d;
+}
+.menu{
+    font-size:16px;color:#6a006d;
+}
+.direccion{
+    font-size:14px;
+}
