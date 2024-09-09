@@ -1,8 +1,10 @@
 body{
     font-family:sans-serif;
     width: 100%;
-    max-width: 1920px;
+    max-width: 1366px;
     margin: 0 auto; /* Центрирует контент */
+    padding: 20px;
+    box-sizing: border-box; /* Учитывает padding в общей ширине */
 }
 header{
     border-bottom: 1px solid black;
@@ -72,5 +74,14 @@ nav ul li a {
 nav ul li:hover {
     background: #eca023;}
 img{
-     width: 100vw; height: auto;
+     width: 100%; max-width: 1920px; height: auto;
 }
+
+
+
+
+
+
+
+
+
