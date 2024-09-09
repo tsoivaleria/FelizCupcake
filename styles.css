@@ -1,5 +1,8 @@
 body{
     font-family:sans-serif;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto; /* Центрирует контент */
 }
 header{
     border-bottom: 1px solid black;
