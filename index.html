@@ -1,66 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
-       <head>
-        <link rel="stylesheet" href="styles.css"/>
-          <title>Project work</title>
-    </head>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Feliz Cupcake</title>
+</head>
 
 <body>
-    <header>
-       
-    <nav>
-    <ul  style="list-style-type: none;">
-	<li><a href="#precio">Precio</a></li>
-	<li><a href="#">Hacer pedido</a></li>
-	<li><a href="#direccion">Contacto</a></li>
-</ul>
-</nav>
-    <div>
-        <h1>
-        <img src="https://ibb.co/HpG5bK1">Feliz Cupcake pastelería</h1>
+    
+    <a href="#" id="scrollUp" class="scroll-up">&#8679;</a>
+
+    <!-- Хедер -->
+    <header class="nav-bar">
+        <div class="logo">
+            <img src="/images/logo.png" alt="Feliz Cupcake logo" class="logo-img">
+            <h1>Feliz Cupcake</h1>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#precio">Precio</a></li>
+                <li><a href="#pedir">Pedir</a></li>
+                <li><a href="#gallery">Galería</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="main-banner">
+        <img src="/images/main_photo.png" alt="Delicious cupcakes" class="banner-img">
+        <div class="banner-text">
+            <h2>¡Bienvenidos a la pastelería Feliz Cupcake!</h2>
+            <p>Nos especializamos en crear deliciosos capcakes caseros a medida para cualquier ocasión especial. 
+            Desde cumpleaños hasta gender reveal parties, eventos corporativos y simplemente para darte un gusto 🎀</p>
+            <button class="button">Contáctanos</button>
+        </div>
+    </section>
+
+    <!-- Цены -->
+    <section class="pricing" id="precio">
+        <h2>Precio</h2>
+        <div class="pricing-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>CUPCAKE SET</th>
+                        <th>PRECIO *</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Set 6 piezas</td>
+                        <td>$29</td>
+                    </tr>
+                    <tr>
+                        <td>Set 12 piezas</td>
+                        <td>$56</td>
+                    </tr>
+                    <tr>
+                        <td>Set 18 piezas</td>
+                        <td>$85</td>
+                    </tr>
+                    <tr>
+                        <td>Set 24 piezas</td>
+                        <td>$114</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><small>* Envío gratuito para Talavera &gt; 20km</small></p>
+        </div>
+    </section>
+    
+
+    <!-- Карусель с радиокнопками -->
+<section class="cupcake-carousel">
+    <h2>Elige tu cupcake</h2>
+    <div class="carousel-container">
+    
+        <div class="carousel">
+            <div class="slide">
+                <img src="/images/vanilla.png" alt="Vanilla cupcake">
+                <p>Vainilla</p>
+                <button class="button">Pedir</button>
+            </div>
+            <div class="slide">
+                <img src="/images/chocolate.png" alt="Chocolate cupcake">
+                <p>Chocolate</p>
+                <button class="button">Pedir</button>
+            </div>
+            <div class="slide">
+                <img src="/images/lemon.png" alt="Lemon cupcake">
+                <p>Lemon</p>
+                <button class="button">Pedir</button>
+            </div>
+            <div class="slide">
+                <img src="/images/dots.png" alt="With chocolate dots">
+                <p>Con trozos de chocolate</p>
+                <button class="button">Pedir</button>
+            </div>
+        </div>
+        
     </div>
-        </header>
-    <main>
-        <p><b>¡Bienvenidos a la pastelería <font color="#DC143C">Feliz Cupcake!</font></b> 🎂🧁🎉
-</p>
-<p>Nos especializamos en crear deliciosos capcakes caseros a medida para cualquier ocasión especial. <br/>Desde <i>cumpleaños</i> hasta <i>gender reveal parties</i>, <i>eventos corporativos</i> y simplemente para darte un gusto 🎀
-            </p>
-    <img src="https://ibb.co/mzKrJG0">
-    <section id="precio">
-    <h2>Menu</h2>
-     <table>
-        <tr>
-            <td><b>Cupcake</b>
-            </td>
-            <td><b>Precio</b>
-            </td>
-        </tr>
-         <tr>
-            <td>6 piezas
-            </td>
-            <td>20 euros
-            </td>
-        </tr>
-        <tr>
-            <td>12 piezas
-            </td>
-            <td>30 euros
-            </td>
-        </tr>
-         <tr>
-            <td>18 piezas
-            </td>
-            <td>40 euros
-            </td>
-        </tr>
-     </table>
-     </section>
-    </main>
-    <footer>
-        <section id="direccion">
-        <p class="direccion">Address: 16 Calle Pérdon, La Pueblanueva</p>
-        </section>
-        <a href="https://youtu.be/n8zwLnc5hro">Estamos en Youtube</a>
-    </footer>
+</section>
+
+    
+     <!-- Форма заказа -->
+    
+    <section class="order" id="pedir">
+       <div class="h2order"> <h2>Formulario de Pedido</h2></div>
+    <div class="order-form-container">
+        <form action="https://formspree.io/f/xyzyglyv" method="POST">
+            <label for="base">Base del cupcake</label>
+            <select id="base" name="base" required>
+                <option value="" disabled selected>Elige la base para el cupcake</option>
+                <option value="vainilla">Vainilla</option>
+                <option value="chocolate">Chocolate</option>
+                <option value="limon">Lemon</option>
+                <option value="trozos_chocolate">Con trozos de chocolate</option>
+            </select>
+
+            <label for="decoracion">Decoración</label>
+            <select id="decoracion" name="decoracion" required>
+                <option value="" disabled selected>Elige la opción de decoración para tu cupcake</option>
+                <option value="basico">Básico</option>
+                <option value="para_ella">Para Ella</option>
+                <option value="para_el">Para Él</option>
+                <option value="para_nina">Para niña</option>
+                <option value="para_nino">Para niño</option>
+                <option value="historia_amor">Historia de amor</option>
+                <option value="evento_corporativo">Evento corporativo</option>
+                <option value="revelacion_genero">Revelación de género</option>
+            </select>
+
+            <label for="cantidad">Cantidad</label>
+            <select id="cantidad" name="cantidad" required>
+                <option value="0" disabled selected>Elige la cantidad</option>
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="18">18</option>
+                <option value="24">24</option>
+            </select>
+
+            <label for="fecha">Fecha de entrega</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="hora">Hora de entrega</label>
+            <input type="time" id="hora" name="hora" required>
+            <small>Hora de entrega de 10:00 a 20:30</small>
+
+            <fieldset>
+                <legend>Entrega</legend>
+            
+                    <input type="checkbox" name="recogida" value="recogida"> <small>Recogida personal</small>
+                <br/>
+               
+                <input type="text" class="input-full-width" id="direccion" name="direccion" maxlength="50" placeholder="Introduce la dirección de entrega">
+            </fieldset>
+
+            <label for="telefono">Número de teléfono</label>
+            <input type="tel" id="telefono" name="telefono" maxlength="12" pattern="[+0-9]*" placeholder="Introduce el número de teléfono sin espacios">
+
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" maxlength="50" placeholder="Introduce tu correo electrónico para contactarte">
+
+            <label for="comentario">Comentario</label>
+            <textarea id="comentario" name="comentario" maxlength="200" placeholder="Deja tu comentario si lo deseas"></textarea>
+
+            <label for="importe">Importe del pedido: 
+            <span>0</span>
+                </label>
+            
+            <div class="button-container">
+            <button class="button">Enviar pedido</button>
+            </div>
+        </form>
+    </div>
+    </section>
+    
+    <!-- Галереия -->
+    
+    <section class="gallery" id="gallery">
+    <h2>Galería</h2>
+        <p>Nuestros cupcakes personalizados para cumpleaños, eventos corporativos, fiestas de revelación de género o simplemente para ti</p>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="/images/paraella.png" alt="Para ella">
+            <p>Para ella</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/parael.png" alt="Para él">
+            <p>Para él</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/paranina.png" alt="Para niña">
+            <p>Para niña</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/paranino.png" alt="Para niño">
+            <p>Para niño</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/amor.png" alt="Historia de amor">
+            <p>Historia de amor</p>
+        </div>
+        <div class="gallery-item">
+            <img src="/images/genero.png" alt="Revelación de género">
+            <p>Revelación de género</p>
+        </div>
+    </div>
+    
+        
+</section>
+
+    
+    <!-- Футер -->
+    
+    <footer class="footer" id="footer">
+    <div class="footer-container">
+        <!-- Контактная информация -->
+        <div class="contact-info">
+            <h3>Contáctanos</h3>
+            <hr class="footer-line">
+            <div class="contacts">
+            <p>Email: felizcupcake.panaderia@gmail.com</p>
+            <p>Teléfono: +34 651 645170</p>
+            <p>Dirección: La Pueblanueva, Toledo</p>
+            </div>
+        </div>
+
+        <!-- Социальные сети -->
+        <div class="social-media">
+            <h3>Síguenos</h3>
+            <hr class="footer-line">
+            <div class="social-icons">
+                <a href="#"><img src="/images/Instagram.png" alt="Instagram"></a>
+                <a href="#"><img src="/images/FB.png" alt="Facebook"></a>
+                <a href="#"><img src="/images/YouTube.png" alt="YouTube"></a>
+                <a href="#"><img src="/images/Twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
+
 </html>
