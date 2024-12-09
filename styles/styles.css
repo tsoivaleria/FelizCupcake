@@ -1,13 +1,15 @@
-/* A=>2=K5 AB8;8 */
+
 
 body {
     font-family: 'Dancing Script';
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+}
+.container{
+    width: 100%;
+    max-width: 1182px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
     box-sizing: border-box;
-    overflow-x: hidden;
-    font-size: 1.2rem; 
 }
 
 h1, h2, p, a, button {
@@ -15,28 +17,9 @@ h1, h2, p, a, button {
 }
 
 h1, h2 {
-    font-size: 1.6rem;
-}
-
-.button {
-    background-color: #61037E;
-    color: #FFF;
-    border: none;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: medium;
-    transition: background-color 0.3s;
-   
-    width: fit-content;
-    border-radius: 4px;
-}
-
-.button:hover {
-    color: greenyellow;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-.banner-text button{
-    margin-top: 20px;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Header */
@@ -44,36 +27,28 @@ h1, h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 96px 0 20px;
-    background-color: #FFF7F6;
+    padding: 10px 20px;
 }
-
 .logo {
     display: flex;
     align-items: center;
 }
-
 .logo-img {
     height: 50px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
-
-.navigation ul {
-    list-style: none;
+.navigation {
     display: flex;
     gap: 60px;
+    font-size: 1.2rem;
 }
-
 .navigation a {
     text-decoration: none;
     color: #5D1D1D;
-
 }
-
 .navigation a:hover{
     text-decoration: underline;
 }
-
 .cart-icon img {
     height: 30px;
 }
@@ -103,44 +78,79 @@ h1, h2 {
 
 /* Main banner */
 .main-banner {
-    position: relative;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 0;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-}
-
-
-.banner-img {
-    width: 100%;
-    height: auto;
-    opacity: 0.8;
-}
+        background-image: url(../images/valeriia.tsoi.main.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        padding-top: 142px;
+        padding-bottom: 142px;
+    }
+.main-banner .container{
+        display: flex;
+        justify-content: flex-end;
+    }
 
 .banner-text {
-    position: absolute;
-    top: 30%;
-    left: 73%;
-    transform: translate(-50%, -30%);
-    color: #5D1D1D;
-    padding: 20px;
-    width: 300px; /* Ограничим ширину блока */
-    max-width: 80%; /* Не выходить за границы при уменьшении */
-    overflow: hidden; /* Обрезать текст, который выходит за пределы */
-    word-wrap: break-word; /* Переносить длинные слова */
-    text-align: center; /* Центрируем текст */
+    display: block;
+    background-color: rgba(252, 250, 250, 0.3);
+    font-size: 1.3rem;
+    line-height: 160%;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    padding: 10px;
 }
+.button {
+    background-color: #61037E;
+    color: #FFF;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    width: fit-content;
+    border-radius: 4px;
+}
+
+.button:hover {
+    color: greenyellow;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.banner-text button{
+    margin-top: 20px;
+}
+
+/* Pricing */
+
+.pricing {
+    text-align: center;
+    margin-top: 96px;
+
+}
+
+.pricing-table {
+    font-size: 20px;
+    rotate: 2deg;
+    display: inline-block;
+    background-color: #faf7f7;
+    margin-top: 36px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+tr{
+    text-align: left;
+}
+td, th{
+    padding: 5px 40px 5px 40px;
+}
+
 
 /* Carousel */
 .cupcake-carousel {
     text-align: center;
-    padding: 50px 20px;
+    margin-top: 106px;
 }
-
 .carousel-container {
     max-width: 600px;
     margin: 0 auto;
@@ -148,20 +158,15 @@ html, body {
     position: relative;
     
 }
-
-
 .carousel {
     display: flex;
     transition: transform 1s linear;
     animation: slide-animation 10s infinite;
     animation-fill-mode: forwards;
-
 }
-
 .carousel-container:hover .carousel {
     animation-play-state: paused; 
 }
-
 
 @keyframes slide-animation {
     0% { transform: translateX(0); }
@@ -170,13 +175,14 @@ html, body {
     100% { transform: translateX(-300%); }
 }
 
-
 .slide {
     min-width: 100%;
     box-sizing: border-box;
     padding: 20px;
 }
-
+.slide p{
+    font-size: 20px;
+}
 .carousel img {
     width: 100%;
     height: auto;
@@ -190,42 +196,16 @@ html, body {
 }
 
 
-/* Pricing */
-.pricing {
-    text-align: center;
-    padding: 30px 0 50px 0;
-    margin:0;
-
-}
-
-.pricing-table {
-    rotate: 2deg;
-    display: inline-block;
-    background-color: #faf7f7;
-    margin-top: 36px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-
-
-tr{
-    text-align: left;
-}
-td, th{
-    padding: 5px 40px 5px 40px;
-    
-}
-
-/* Form order */
+/* Order form */
 .order{
     margin-top: 96px;
 }
 
 .order-form-container {
     max-width: 640px;
-    margin: 20px auto;
+    margin: 50px auto 20px;
     padding: 20px;
+    font-size: 20px;
     background-color: #faf7f7;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -241,15 +221,16 @@ form {
 }
 
 label, legend {
-    margin: 10px 0 5px;
+    padding: 10px 0 5px;
     color: #5D1D1D;
 }
 
-select, input[type="date"], input[type="time"], input[type="tel"], input[type="email"], textarea {
+select, input[type="date"], input[type="time"], input[type="tel"], input[type="email"], input[type="email"], textarea {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 15px;
+    font-size: 16px;
 }
 
 select {
@@ -296,12 +277,12 @@ small {
 
 /* Gallery */
 .gallery {
-    padding: 50px 0;
+    margin-top: 90px;
     text-align: center;
+    font-size: 20px;
 }
 
 .gallery h2 {
-    font-size: 2rem;
     margin-bottom: 30px;
 }
 
@@ -383,12 +364,10 @@ small {
 .footer {
     background-color: #fff7f4;
     padding: 20px 0 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .footer-container {
+    align-items: center;
     max-width: 1288px;
     width: 100%;
     display: flex;
@@ -586,30 +565,25 @@ small {
     }
 }
 
-/* Стили для планшетов */
-@media (min-width: 601px) and (max-width: 1290px) {
-
-    p{
-        font-size: 1rem;
-    }
-    
+/* iPad */
+@media (max-width: 936px) { 
     h2{
-        font-size: 1.4rem;
+        font-size: 1.8rem;
     }
-    
     .nav-bar {
-        display: none;
-        /*padding: 0 40px;*/
+        display: flex;
+    }
+    .button {
+        font-size: 1.4rem;
     }
 
     /* Главный баннер */
     .banner-text {
-        width: 60%; /* Плавная настройка ширины */
+        width: 60%;
         top: 35%;
         left: 50%;
         transform: translate(-50%, -35%);
         padding: 15px;
-        font-size: 1.2rem; /* Немного увеличиваем текст */
     }
 
 

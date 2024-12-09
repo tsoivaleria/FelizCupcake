@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/normalize.css">
     <title>Feliz Cupcake</title>
 </head>
-
 <body>
-    
     <a href="#" id="scrollUp" class="scroll-up">&#8679;</a>
-
-    <!-- Header-->
-   
-    <header class="nav-bar">
-        <div class="logo">
-            <img src="images/logo.png" alt="Feliz Cupcake logo" class="logo-img">
-            <h1>Feliz Cupcake</h1>
+    <header>
+        <div class="container">
+        <div class="nav-bar">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Feliz Cupcake logo" class="logo-img">
+                <h2>Feliz Cupcake</h2>
+            </div>
+            <nav class="navigation">
+                    <a href="#precio">Precio</a>
+                    <a href="#pedir">Pedir</a>
+                    <a href="#gallery">Galería</a>
+            </nav>
         </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="#precio">Precio</a></li>
-                <li><a href="#pedir">Pedir</a></li>
-                <li><a href="#gallery">Galería</a></li>
-            </ul>
-        </nav>
-        
-    </header>
+        </div>
+        </header> 
 
-    <!-- Главный баннер -->
     <section class="main-banner">
-        <img src="images/main_photo.png" alt="Delicious cupcakes" class="banner-img">
+        <div class="container">
         <div class="banner-text">
             <h2>¡Bienvenidos a la pastelería <strong>Cupcake</strong> !</h2>
             <p>Nos especializamos en crear deliciosos <strong>cupcakes</strong> caseros a medida para cualquier ocasión especial. 
             Desde cumpleaños hasta gender reveal parties, eventos corporativos y simplemente para darte un gusto 🎀</p>
             <button class="button">Contáctanos</button>
         </div>
+        </div>
     </section>
 
-    <!-- Цены -->
     <section class="pricing" id="precio">
+        <div class="container">
         <h2>Precio</h2>
         <div class="pricing-table">
             <table>
@@ -73,11 +70,11 @@
             </table>
             <p><small>* Envío gratuito para Talavera &gt; 20km</small></p>
         </div>
+        </div>
     </section>
     
-
-    <!-- Карусель с радиокнопками -->
 <section class="cupcake-carousel">
+    <div class="container">
     <h2>Elige tu cupcake</h2>
     <div class="carousel-container">
     
@@ -105,14 +102,14 @@
         </div>
         
     </div>
+    </div>
 </section>
 
-    
-     <!-- Форма заказа -->
-    
+     <!-- Order form -->
     <section class="order" id="pedir">
-       <div class="h2order"> <h2>Formulario de Pedido</h2></div>
-    <div class="order-form-container">
+        <div class="container">
+        <div class="h2order"> <h2>Formulario de Pedido</h2></div>
+        <div class="order-form-container">
         <form action="https://formspree.io/f/xyzyglyv" method="POST">
             <label for="base">Base del cupcake</label>
             <select id="base" name="base" required>
@@ -150,12 +147,12 @@
 
             <label for="hora">Hora de entrega</label>
             <input type="time" id="hora" name="hora" required>
-            <small>Hora de entrega de 10:00 a 20:30</small>
+            <span>Hora de entrega de 10:00 a 20:30</span>
 
             <fieldset>
                 <legend>Entrega</legend>
             
-                    <input type="checkbox" name="recogida" value="recogida"> <small>Recogida personal</small>
+                    <input type="checkbox" name="recogida" value="recogida"> <span>Recogida personal</span>
                 <br/>
                
                 <input type="text" class="input-full-width" id="direccion" name="direccion" maxlength="50" placeholder="Introduce la dirección de entrega">
@@ -178,12 +175,13 @@
             <button class="button">Enviar pedido</button>
             </div>
         </form>
-    </div>
+        </div>
+        </div>
     </section>
     
-    <!-- Галерея -->
-    
+    <!-- Gallery -->
     <section class="gallery" id="gallery">
+        <div class="container">
     <h2>Galería</h2>
         <p>Nuestros cupcakes personalizados para cumpleaños, eventos corporativos, fiestas de revelación de género o simplemente para ti</p>
     <div class="gallery-container">
@@ -212,38 +210,36 @@
             <p>Revelación de género</p>
         </div>
     </div>
-    
-        
-</section>
+    </div>   
+    </section>
 
     
-    <!-- Футер -->
+    <!-- Footer -->
     
     <footer class="footer" id="footer">
-    <div class="footer-container">
-        <!-- Контактная информация -->
-        <div class="contact-info">
-            <h3>Contáctanos</h3>
-            <hr class="footer-line">
-            <div class="contacts">
-            <p>Email: felizcupcake.panaderia@gmail.com</p>
-            <p>Teléfono: +34 651 645170</p>
-            <p>Dirección: La Pueblanueva, Toledo</p>
+        <div class="container">
+            <div class="footer-container">
+                <div class="contact-info">
+                    <h3>Contáctanos</h3>
+                    <hr class="footer-line">
+                        <div class="contacts">
+                            <p>Email: felizcupcake.panaderia@gmail.com</p>
+                            <p>Teléfono: +34 651 645170</p>
+                            <p>Dirección: La Pueblanueva, Toledo</p>
+                        </div>
+                </div>
+            <div class="social-media">
+                <h3>Síguenos</h3>
+                <hr class="footer-line">
+                <div class="social-icons">
+                    <a href="#"><img src="/images/Instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="/images/FB.png" alt="Facebook"></a>
+                    <a href="#"><img src="/images/YouTube.png" alt="YouTube"></a>
+                    <a href="#"><img src="/images/Twitter.png" alt="Twitter"></a>
+                </div>
             </div>
         </div>
-
-        <!-- Социальные сети -->
-        <div class="social-media">
-            <h3>Síguenos</h3>
-            <hr class="footer-line">
-            <div class="social-icons">
-                <a href="#"><img src="images/Instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="images/FB.png" alt="Facebook"></a>
-                <a href="#"><img src="images/YouTube.png" alt="YouTube"></a>
-                <a href="#"><img src="images/Twitter.png" alt="Twitter"></a>
-            </div>
         </div>
-    </div>
 </footer>
 
 <script src="script.js"></script>
