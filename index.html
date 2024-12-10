@@ -23,6 +23,7 @@
                     <a href="#pedir">Pedir</a>
                     <a href="#gallery">Galería</a>
             </nav>
+            <button class="burger-menu" onclick="openModal()"></button>
         </div>
         </div>
         </header> 
@@ -30,7 +31,7 @@
     <section class="main-banner">
         <div class="container">
         <div class="banner-text">
-            <h2>¡Bienvenidos a la pastelería <strong>Cupcake</strong> !</h2>
+            <h2>¡Bienvenidos a la pastelería <strong>Feliz Cupcake</strong> !</h2>
             <p>Nos especializamos en crear deliciosos <strong>cupcakes</strong> caseros a medida para cualquier ocasión especial. 
             Desde cumpleaños hasta gender reveal parties, eventos corporativos y simplemente para darte un gusto 🎀</p>
             <button class="button">Contáctanos</button>
@@ -147,14 +148,11 @@
 
             <label for="hora">Hora de entrega</label>
             <input type="time" id="hora" name="hora" required>
-            <span>Hora de entrega de 10:00 a 20:30</span>
+            <span class="comment">Hora de entrega de 10:00 a 20:30</span>
 
             <fieldset>
                 <legend>Entrega</legend>
-            
-                    <input type="checkbox" name="recogida" value="recogida"> <span>Recogida personal</span>
-                <br/>
-               
+                <input type="checkbox" name="recogida" value="recogida"> <span>Recogida personal</span>
                 <input type="text" class="input-full-width" id="direccion" name="direccion" maxlength="50" placeholder="Introduce la dirección de entrega">
             </fieldset>
 
@@ -241,8 +239,16 @@
         </div>
         </div>
 </footer>
-
-<script src="script.js"></script>
+<div class="modalmenu" id="modalmenu">
+    <nav class="nav _modal">
+        <a href="index.html" class="nav-link">Main</a>
+        <a href="#" class="nav-link">Menu</a>
+        <a href="#" class="nav-link">About us</a>
+        <a href="#" class="nav-link">Contacts</a>
+    </nav>
+    <button class="modal-close" onclick="closeModal()"></button>
+</div>
+<script src="/scripts/script.js"></script>
 </body>
 
 </html>
