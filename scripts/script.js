@@ -1,13 +1,12 @@
-// Pedir"
-
+// Botón "Pedir" - Maneja la selección de cupcakes y desplaza a la sección del formulario
 const pedirButtons = document.querySelectorAll('.cupcake-carousel .button');
-
 const orderFormSection = document.querySelector('.order-form-container');
 
 pedirButtons.forEach((button) => {
     button.addEventListener('click', function () {
         const cupcakeName = this.parentElement.querySelector('p').textContent.trim();
-        let valueForBase;
+        let valueForBase = "";
+
         switch (cupcakeName) {
             case 'Vainilla':
                 valueForBase = 'vainilla';
@@ -21,17 +20,14 @@ pedirButtons.forEach((button) => {
             case 'Con trozos de chocolate':
                 valueForBase = 'trozos_chocolate';
                 break;
-            default:
-                valueForBase = '';
         }
 
-        const baseSelect = document.getElementById('base');
-        baseSelect.value = valueForBase;
-
+        document.getElementById('base').value = valueForBase;
         orderFormSection.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
+// Clase para el pedido
 class Order {
     constructor(base, decoracion, cantidad, fecha, hora, direccion, telefono, email, comentario, importe) {
         this.base = base;
@@ -47,127 +43,95 @@ class Order {
     }
 }
 
+// Validación de campos
 function validateFields() {
     let allFieldsFilled = true;
     document.querySelectorAll('select, input, textarea').forEach((field) => {
-        if (field.required && !field.value) {
+        if (field.required && !field.value.trim()) {
             field.style.borderColor = 'red';
             allFieldsFilled = false;
         } else {
             field.style.borderColor = '';
         }
     });
-
     return allFieldsFilled;
 }
 
-document.querySelector('form').addEventListener('submit', function (event) {
+// Manejo del envío del formulario
+const form = document.querySelector('form');
+form.addEventListener('submit', function (event) {
     event.preventDefault();
-
-    let base = document.getElementById('base').value;
-    let decoracion = document.getElementById('decoracion').value;
-    let cantidad = document.getElementById('cantidad').value;
-    let fecha = document.getElementById('fecha').value;
-    let hora = document.getElementById('hora').value;
-    let direccion = document.getElementById('direccion').value;
-    let telefono = document.getElementById('telefono').value;
-    let email = document.getElementById('email').value;
-    let comentario = document.getElementById('comentario').value;
-    let importe = document.querySelector('label[for="importe"] span').textContent;
 
     if (!validateFields()) {
         alert('No se han completado todos los campos');
         return;
     }
 
-    const order = new Order(base, decoracion, cantidad, fecha, hora, direccion, telefono, email, comentario, importe);
+    const order = new Order(
+        document.getElementById('base').value,
+        document.getElementById('decoracion').value,
+        document.getElementById('cantidad').value,
+        document.getElementById('fecha').value,
+        document.getElementById('hora').value,
+        document.getElementById('direccion').value,
+        document.getElementById('telefono').value,
+        document.getElementById('email').value,
+        document.getElementById('comentario').value,
+        document.querySelector('label[for="importe"] span').textContent
+    );
 
     fetch("https://formspree.io/f/xyzyglyv", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(order)
     })
     .then(response => {
         if (response.ok) {
-            alert("�Su pedido ha sido enviado con �xito!");
-            document.querySelector('form').reset();
-            document.querySelectorAll('select, input, textarea').forEach(field => {
-                field.style.borderColor = ''; 
-            });
+            alert("¡Su pedido ha sido enviado con éxito!");
+            form.reset();
+            document.querySelectorAll('select, input, textarea').forEach(field => field.style.borderColor = '');
             document.querySelector('label[for="importe"] span').textContent = "0";
         } else {
-            alert("Ocurri� un error al enviar el pedido");
+            alert("Ocurrió un error al enviar el pedido");
         }
     })
-    .catch(() => alert("Ocurri� un error al enviar el pedido"));
+    .catch(() => alert("Ocurrió un error al enviar el pedido"));
 });
 
+// Manejo de la opción de entrega
 const recogidaCheckbox = document.querySelector('input[name="recogida"]');
 const direccionField = document.getElementById('direccion');
-
-recogidaCheckbox.addEventListener('change', function () {
-    if (recogidaCheckbox.checked) {
-        direccionField.disabled = true;
-        direccionField.required = false;
-        direccionField.style.borderColor = '';
-    } else {
-        direccionField.disabled = false;
-        direccionField.required = true;
-    }
+recogidaCheckbox.addEventListener('change', () => {
+    direccionField.disabled = recogidaCheckbox.checked;
+    direccionField.required = !recogidaCheckbox.checked;
+    direccionField.style.borderColor = '';
 });
 
+// Actualización del importe según la cantidad
 const cantidadSelect = document.getElementById('cantidad');
 const importeLabel = document.querySelector('label[for="importe"] span');
 
-cantidadSelect.addEventListener('change', function () {
-    let cantidad = parseInt(cantidadSelect.value);
-    let importe = 0;
-
-    switch (cantidad) {
-        case 6:
-            importe = 29;
-            break;
-        case 12:
-            importe = 56;
-            break;
-        case 18:
-            importe = 85;
-            break;
-        case 24:
-            importe = 114;
-            break;
-        default:
-            importe = 0;
-    }
-
-    importeLabel.textContent = importe + "�";
+cantidadSelect.addEventListener('change', () => {
+    const precios = { 6: 29, 12: 56, 18: 85, 24: 114 };
+    const cantidad = parseInt(cantidadSelect.value);
+    importeLabel.textContent = precios[cantidad] || "0";
 });
 
-// Gallery
+// Manejo de la galería
 const galleryItems = document.querySelectorAll('.gallery-item img');
-
-
 const modal = document.createElement('div');
 modal.classList.add('modal');
-
 const modalContent = document.createElement('div');
 modalContent.classList.add('modal-content');
-
 const modalImage = document.createElement('img');
-modalContent.appendChild(modalImage);
-
-
 const closeButton = document.createElement('span');
+
 closeButton.classList.add('close-btn');
 closeButton.innerHTML = '&times;';
+modalContent.appendChild(modalImage);
 modal.appendChild(closeButton);
-
-
 modal.appendChild(modalContent);
 document.body.appendChild(modal);
-
 
 galleryItems.forEach(item => {
     item.addEventListener('click', (e) => {
@@ -176,11 +140,9 @@ galleryItems.forEach(item => {
     });
 });
 
-
 closeButton.addEventListener('click', () => {
     modal.style.display = 'none';
 });
-
 
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -188,39 +150,21 @@ modal.addEventListener('click', (e) => {
     }
 });
 
-// .button
-const contactButton = document.querySelector('.button');
-
-
-contactButton.addEventListener('click', () => {
-  
-    const footer = document.getElementById('footer');
-    
-   
-    footer.scrollIntoView({ behavior: 'smooth' });
-});
-
-// ScrollUp
+// Desplazamiento hacia arriba
 const scrollUpButton = document.getElementById('scrollUp');
-
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollUpButton.style.display = 'block';
-    } else {
-        scrollUpButton.style.display = 'none';
+    scrollUpButton.style.display = window.pageYOffset > 300 ? 'block' : 'none';
 });
-
 scrollUpButton.addEventListener('click', (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-       // Menu
+// Manejo del menú
+function openModal() {
+    document.getElementById("modalmenu").style.top = "0px";
+}
 
-       function openModal() {
-        document.getElementById("modalmenu").style.top = "0px";
-    }
-
-    function closeModal() {
-        document.getElementById("modalmenu").style.top = "-400px";
-    }
+function closeModal() {
+    document.getElementById("modalmenu").style.top = "-400px";
+}

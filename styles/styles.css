@@ -371,7 +371,6 @@ small {
     justify-content: center;
     align-items: center;
 }
-
 .modal-content {
     max-width: 90%;
     max-height: 90%;
@@ -383,6 +382,7 @@ small {
     border-radius: 8px;
 }
 
+/* Кнопка закрытия */
 .close-btn {
     position: absolute;
     top: 20px;
