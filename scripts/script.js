@@ -135,8 +135,10 @@ document.body.appendChild(modal);
 
 galleryItems.forEach(item => {
     item.addEventListener('click', (e) => {
-        modalImage.src = e.target.src;
-        modal.style.display = 'flex';
+        if (window.innerWidth > 444) {
+            modalImage.src = e.target.src;
+            modal.style.display = 'flex';
+        }
     });
 });
 
@@ -168,3 +170,10 @@ function openModal() {
 function closeModal() {
     document.getElementById("modalmenu").style.top = "-400px";
 }
+
+// Botón "Contáctanos"
+const contactButton = document.querySelector('.button');
+contactButton.addEventListener('click', () => {
+    const footer = document.getElementById('footer');
+    footer.scrollIntoView({ behavior: 'smooth' });
+});
