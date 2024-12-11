@@ -516,6 +516,9 @@ small {
         padding-top: 62px;
         padding-bottom: 62px;
     }
+    .banner-text {
+        background-color: rgba(252, 250, 250, 0.7);
+    }
     .pricing {
         margin-top: 46px;
     }
